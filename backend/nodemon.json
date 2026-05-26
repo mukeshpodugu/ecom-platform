@@ -1,0 +1,8 @@
+{
+  "ignore": [
+    "data/*",
+    "invoices/*",
+    "node_modules/*"
+  ],
+  "delay": "1000"
+}
