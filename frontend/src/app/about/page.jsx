@@ -125,6 +125,42 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Developer Profile Card */}
+      <section className="glass-panel" style={{ 
+        padding: '30px', 
+        borderRadius: 'var(--radius-lg)', 
+        marginTop: '40px', 
+        display: 'flex', 
+        gap: '20px', 
+        alignItems: 'center',
+        border: '1px solid rgba(255, 255, 255, 0.08)'
+      }}>
+        <div style={{
+          width: '54px',
+          height: '54px',
+          borderRadius: '50%',
+          backgroundColor: 'hsla(var(--accent-primary), 0.15)',
+          border: '1px solid hsla(var(--accent-primary), 0.3)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: 'hsl(var(--accent-primary))',
+          fontSize: '20px',
+          fontWeight: 800
+        }}>
+          PM
+        </div>
+        <div>
+          <h3 style={{ fontSize: '13px', fontWeight: 700, color: 'hsl(var(--text-muted))', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Lead Developer</h3>
+          <p style={{ fontSize: '18px', fontWeight: 800, color: 'hsl(var(--text-primary))', margin: '4px 0' }}>PODUGU MUKESH</p>
+          <p style={{ fontSize: '13px', color: 'hsl(var(--text-secondary))', display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
+            <span><strong>Email:</strong> <a href="mailto:mukeshpodugu123@gmail.com" style={{ color: 'hsl(var(--accent-primary))', textDecoration: 'none' }}>mukeshpodugu123@gmail.com</a></span>
+            <span><strong>Tel:</strong> +91 8143999463</span>
+            <span><strong>Location:</strong> Srikakulam, India</span>
+          </p>
+        </div>
+      </section>
+
       <div style={{ textAlign: 'center', marginTop: '60px' }}>
         <Link href="/products" className="btn btn-primary" style={{ padding: '12px 30px' }}>
           Start Shopping

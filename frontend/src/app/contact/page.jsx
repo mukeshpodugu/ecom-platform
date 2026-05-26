@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addToast } from '@/store/uiSlice';
-import { Mail, MapPin, Clock, Send, ShieldCheck } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, ShieldCheck } from 'lucide-react';
 
 export default function ContactPage() {
   const dispatch = useDispatch();
@@ -35,9 +35,9 @@ export default function ContactPage() {
   };
 
   const contactCards = [
-    { icon: <Mail size={18} />, label: 'Email Address', val: 'support@apex-ecom.com', desc: 'Direct support correspondence' },
-    { icon: <MapPin size={18} />, label: 'Corporate Office', val: 'Silicon Valley, California', desc: '100 Innovation Way, Suite 400' },
-    { icon: <Clock size={18} />, label: 'Business Hours', val: 'Monday - Friday', desc: '9:00 AM - 6:00 PM PST' }
+    { icon: <Mail size={18} />, label: 'Developer Email', val: 'mukeshpodugu123@gmail.com', desc: 'Direct developer support' },
+    { icon: <MapPin size={18} />, label: 'Developer Location', val: 'Srikakulam, Andhra Pradesh', desc: 'India' },
+    { icon: <Phone size={18} />, label: 'Contact Number', val: '+91 8143999463', desc: 'Direct phone support' }
   ];
 
   return (
