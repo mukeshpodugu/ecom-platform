@@ -59,11 +59,17 @@ export default function Footer() {
         <div>
           <h4 style={{ fontSize: '14px', fontWeight: 700, marginBottom: '20px', textTransform: 'uppercase' }}>Resources</h4>
           <ul style={{ listStyle: 'none', padding: 0 }}>
-            {['About Us', 'Contact Support', 'Careers', 'Privacy Policy', 'Terms of Service'].map((item) => (
-              <li key={item} style={{ marginBottom: '12px' }}>
-                <a href="#" className="footer-link" style={{ fontSize: '13px' }}>
-                  {item}
-                </a>
+            {[
+              { name: 'About Us', href: '/about' },
+              { name: 'Contact Support', href: '/contact' },
+              { name: 'Careers', href: '#' },
+              { name: 'Privacy Policy', href: '#' },
+              { name: 'Terms of Service', href: '#' }
+            ].map((item) => (
+              <li key={item.name} style={{ marginBottom: '12px' }}>
+                <Link href={item.href} className="footer-link" style={{ fontSize: '13px' }}>
+                  {item.name}
+                </Link>
               </li>
             ))}
           </ul>
