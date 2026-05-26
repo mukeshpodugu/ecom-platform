@@ -95,6 +95,28 @@ export const saveAddress = createAsyncThunk(
   }
 );
 
+export const updateDetails = createAsyncThunk(
+  'auth/updateDetails',
+  async (detailsData, thunkAPI) => {
+    const token = thunkAPI.getState().auth.token;
+    try {
+      const response = await fetch(`${API_URL}/updatedetails`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(detailsData),
+      });
+      const data = await response.json();
+      if (!response.ok) return thunkAPI.rejectWithValue(data.error);
+      return data.user;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  }
+);
+
 const initialState = {
   user: getInitialUser(),
   token: getInitialToken(),
@@ -185,6 +207,22 @@ const authSlice = createSlice({
             localStorage.setItem('user', JSON.stringify(state.user));
           }
         }
+      })
+      // Update Details
+      .addCase(updateDetails.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(updateDetails.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload;
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('user', JSON.stringify(action.payload));
+        }
+      })
+      .addCase(updateDetails.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
       });
   },
 });

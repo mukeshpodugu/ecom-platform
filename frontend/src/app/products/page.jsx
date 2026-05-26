@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useSelector, useDispatch } from 'react-redux';
@@ -9,7 +9,7 @@ import { addItemToCart } from '@/store/cartSlice';
 import { addToast } from '@/store/uiSlice';
 import { Star, Filter, ArrowUpDown, ChevronRight } from 'lucide-react';
 
-export default function ProductListingPage() {
+function ProductListing() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const dispatch = useDispatch();
@@ -309,5 +309,17 @@ export default function ProductListingPage() {
         }
       `}</style>
     </div>
+  );
+}
+
+export default function ProductListingPage() {
+  return (
+    <Suspense fallback={
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh' }}>
+        <p style={{ color: 'hsl(var(--text-secondary))', fontSize: '16px', fontWeight: 500 }}>Loading catalog...</p>
+      </div>
+    }>
+      <ProductListing />
+    </Suspense>
   );
 }
