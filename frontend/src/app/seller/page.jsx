@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/config';
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -28,7 +29,7 @@ export default function SellerDashboardPage() {
 
   const fetchSellerData = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/sellers/dashboard', {
+      const res = await fetch(`${API_BASE_URL}/api/sellers/dashboard`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -61,7 +62,7 @@ export default function SellerDashboardPage() {
     }
 
     try {
-      const res = await fetch('http://localhost:5000/api/sellers/products', {
+      const res = await fetch(`${API_BASE_URL}/api/sellers/products`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -102,7 +103,7 @@ export default function SellerDashboardPage() {
     if (!confirm('Are you sure you want to delete this product?')) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/api/sellers/products/${prodId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/sellers/products/${prodId}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       });

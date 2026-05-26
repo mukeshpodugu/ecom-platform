@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/config';
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -17,7 +18,7 @@ export default function OrdersHistoryPage() {
   // Fetch orders from API
   const fetchMyOrders = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/orders/myorders', {
+      const res = await fetch(`${API_BASE_URL}/api/orders/myorders`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -44,7 +45,7 @@ export default function OrdersHistoryPage() {
     try {
       dispatch(addToast({ message: 'Generating invoice PDF...', type: 'info' }));
 
-      const res = await fetch(`http://localhost:5000/api/orders/${orderId}/invoice`, {
+      const res = await fetch(`${API_BASE_URL}/api/orders/${orderId}/invoice`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -72,7 +73,7 @@ export default function OrdersHistoryPage() {
     if (!confirm('Are you sure you want to cancel this order? This will restore stock levels.')) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/api/orders/${orderId}/cancel`, {
+      const res = await fetch(`${API_BASE_URL}/api/orders/${orderId}/cancel`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

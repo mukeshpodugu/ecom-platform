@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/config';
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -18,7 +19,7 @@ export default function WishlistPage() {
 
   const fetchWishlist = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/wishlist', {
+      const res = await fetch(`${API_BASE_URL}/api/wishlist`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -43,7 +44,7 @@ export default function WishlistPage() {
 
   const handleRemove = async (productId, name) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/wishlist/${productId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/wishlist/${productId}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       });

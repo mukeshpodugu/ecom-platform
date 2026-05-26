@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/config';
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -19,7 +20,7 @@ export default function AdminDashboardPage() {
   const fetchAdminData = async () => {
     try {
       // 1. Fetch Analytics
-      const statsRes = await fetch('http://localhost:5000/api/admin/analytics', {
+      const statsRes = await fetch(`${API_BASE_URL}/api/admin/analytics`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const statsData = await statsRes.json();
@@ -29,7 +30,7 @@ export default function AdminDashboardPage() {
       }
 
       // 2. Fetch Users
-      const usersRes = await fetch('http://localhost:5000/api/admin/users', {
+      const usersRes = await fetch(`${API_BASE_URL}/api/admin/users`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const usersData = await usersRes.json();
@@ -54,7 +55,7 @@ export default function AdminDashboardPage() {
 
   const handleToggleUserBlock = async (userId, currentlyBlocked) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/admin/users/${userId}/status`, {
+      const res = await fetch(`${API_BASE_URL}/api/admin/users/${userId}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

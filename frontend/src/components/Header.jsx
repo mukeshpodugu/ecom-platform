@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/config';
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
@@ -30,7 +31,7 @@ export default function Header() {
 
     const handler = setTimeout(async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/products/search/suggestions?query=${searchQuery}`);
+        const res = await fetch(`${API_BASE_URL}/api/products/search/suggestions?query=${searchQuery}`);
         const data = await res.json();
         if (data.success) {
           setSuggestions(data.suggestions);

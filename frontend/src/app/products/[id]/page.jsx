@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/config';
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
@@ -33,7 +34,7 @@ export default function ProductDetailPage() {
     // Fetch reviews directly from api
     const fetchReviews = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/reviews/product/${params.id}`);
+        const res = await fetch(`${API_BASE_URL}/api/reviews/product/${params.id}`);
         const data = await res.json();
         if (data.success) {
           setReviews(data.reviews);
@@ -99,7 +100,7 @@ export default function ProductDetailPage() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/reviews', {
+      const response = await fetch(`${API_BASE_URL}/api/reviews`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

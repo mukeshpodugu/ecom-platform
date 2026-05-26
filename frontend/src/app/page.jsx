@@ -1,4 +1,5 @@
 'use client';
+import { API_BASE_URL } from '@/config';
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -20,7 +21,7 @@ export default function HomePage() {
   useEffect(() => {
     const fetchCats = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/products');
+        const res = await fetch(`${API_BASE_URL}/api/products`);
         const data = await res.json();
         // Generate mock categories or extract from products
         setCategories([

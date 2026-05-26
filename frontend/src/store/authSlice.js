@@ -1,6 +1,7 @@
+import { API_BASE_URL } from '@/config';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const API_URL = 'http://localhost:5000/api/auth';
+const API_URL = `${API_BASE_URL}/api/auth`;
 
 const getInitialToken = () => {
   if (typeof window !== 'undefined') {
