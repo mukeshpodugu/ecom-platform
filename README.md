@@ -5,6 +5,10 @@
 [![MongoDB](https://img.shields.io/badge/Database-MongoDB-mediumseagreen?style=for-the-badge&logo=mongodb)](https://www.mongodb.com/)
 [![Redux](https://img.shields.io/badge/State--Management-Redux--Toolkit-purple?style=for-the-badge&logo=redux)](https://redux-toolkit.js.org/)
 
+### 🌐 Live Deployments
+* **Frontend Web Application (Vercel)**: [https://ecom-platform-kohl.vercel.app](https://ecom-platform-kohl.vercel.app)
+* **Backend REST API Server (Render)**: [https://ecom-platform-0wva.onrender.com](https://ecom-platform-0wva.onrender.com)
+
 Horizon Mall (Apex) is a production-level, full-stack e-commerce marketplace designed with premium glassmorphism visuals, advanced state management, and real-time backend orchestration. Built to serve as a resume-weightage developer project, it goes beyond a standard store clone by introducing **AI product recommendations, a seller multi-vendor dashboard, and secure dynamic PDF invoice streaming**.
 
 ---
@@ -72,8 +76,10 @@ npm run seed
 npm run dev
 ```
 
-*   **Frontend App URL**: [http://localhost:3000](http://localhost:3000)
-*   **Backend Docs URL**: [http://localhost:5000/api/docs](http://localhost:5000/api/docs)
+*   **Local Frontend App URL**: [http://localhost:3000](http://localhost:3000)
+*   **Local Backend Docs URL**: [http://localhost:5000/api/docs](http://localhost:5000/api/docs)
+*   **Production Frontend Web App**: [https://ecom-platform-kohl.vercel.app](https://ecom-platform-kohl.vercel.app)
+*   **Production Backend API URL**: [https://ecom-platform-0wva.onrender.com](https://ecom-platform-0wva.onrender.com)
 
 ---
 
