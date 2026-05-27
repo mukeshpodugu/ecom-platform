@@ -146,7 +146,16 @@ export default function ProductDetailPage() {
   if (detailLoading || !selectedProduct) {
     return (
       <div className="container" style={{ padding: '60px 24px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '40px' }} className="skeleton" />
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '40px' }}>
+          <div className="skeleton" style={{ height: '420px', borderRadius: 'var(--radius-lg)' }} />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <div className="skeleton" style={{ height: '32px', width: '60%', borderRadius: 'var(--radius-sm)' }} />
+            <div className="skeleton" style={{ height: '24px', width: '40%', borderRadius: 'var(--radius-sm)' }} />
+            <div className="skeleton" style={{ height: '80px', borderRadius: 'var(--radius-md)' }} />
+            <div className="skeleton" style={{ height: '48px', borderRadius: 'var(--radius-md)' }} />
+            <div className="skeleton" style={{ height: '120px', borderRadius: 'var(--radius-md)' }} />
+          </div>
+        </div>
       </div>
     );
   }
