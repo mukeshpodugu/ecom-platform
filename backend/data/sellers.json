@@ -1,0 +1,13 @@
+[
+  {
+    "_id": "6652ed9a2d480d195cbb291d",
+    "user": "6652ed9a2d480d195cbb291b",
+    "storeName": "Apex Prime Store",
+    "description": "Authorized retailer of elite electronics and accessories.",
+    "logo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=150",
+    "banner": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1000",
+    "rating": 4.8,
+    "reviewsCount": 154,
+    "isVerified": true
+  }
+]

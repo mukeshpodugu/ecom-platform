@@ -1,0 +1,56 @@
+[
+  {
+    "_id": "6652ed9a2d480d195cbb291a",
+    "name": "Apex Admin User",
+    "email": "admin@apex.com",
+    "password": "$2a$10$9AAtvH2Ikpd/Jw5QjVzjr.yyeY3ZsLTZb7BYJZ75wYqpi/QX7A8lC",
+    "role": "admin",
+    "isVerified": true,
+    "addresses": [
+      {
+        "street": "100 Admin HQ Blvd",
+        "city": "Silicon Valley",
+        "state": "CA",
+        "zip": "94025",
+        "country": "USA",
+        "isDefault": true
+      }
+    ]
+  },
+  {
+    "_id": "6652ed9a2d480d195cbb291b",
+    "name": "Super Seller Store",
+    "email": "seller@apex.com",
+    "password": "$2a$10$9AAtvH2Ikpd/Jw5QjVzjr.Cm/0iimoQt2g.ylZijpS6XCoiZ4Bix2",
+    "role": "seller",
+    "isVerified": true,
+    "addresses": [
+      {
+        "street": "456 Warehouse Lane",
+        "city": "Austin",
+        "state": "TX",
+        "zip": "78701",
+        "country": "USA",
+        "isDefault": true
+      }
+    ]
+  },
+  {
+    "_id": "6652ed9a2d480d195cbb291c",
+    "name": "Jane Customer Doe",
+    "email": "user@apex.com",
+    "password": "$2a$10$9AAtvH2Ikpd/Jw5QjVzjr.rDqFAT8mj3ISxFw2hCUCp6lEgrcO1CK",
+    "role": "customer",
+    "isVerified": true,
+    "addresses": [
+      {
+        "street": "789 Cozy Apartment Rd",
+        "city": "New York",
+        "state": "NY",
+        "zip": "10001",
+        "country": "USA",
+        "isDefault": true
+      }
+    ]
+  }
+]

@@ -9,7 +9,7 @@ out/
 build/
 
 # Local Database & Invoices (Private Mock Storage)
-backend/data/*.json
+# backend/data/*.json
 backend/invoices/*.pdf
 
 # Environment Configurations (Tokens, secrets)

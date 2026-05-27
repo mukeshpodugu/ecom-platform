@@ -1,0 +1,33 @@
+[
+  {
+    "_id": "6652ed9a2d480d195cbb293a",
+    "code": "SAVE10",
+    "discountType": "percentage",
+    "discountValue": 10,
+    "minOrderAmount": 30,
+    "startDate": "2026-05-27T04:25:22.953Z",
+    "endDate": "2027-05-27T04:25:22.953Z",
+    "isActive": true
+  },
+  {
+    "_id": "6652ed9a2d480d195cbb293b",
+    "code": "SAVE20",
+    "discountType": "percentage",
+    "discountValue": 20,
+    "minOrderAmount": 50,
+    "maxDiscountAmount": 30,
+    "startDate": "2026-05-27T04:25:22.954Z",
+    "endDate": "2027-05-27T04:25:22.953Z",
+    "isActive": true
+  },
+  {
+    "_id": "6652ed9a2d480d195cbb293c",
+    "code": "FLAT50",
+    "discountType": "fixed",
+    "discountValue": 50,
+    "minOrderAmount": 200,
+    "startDate": "2026-05-27T04:25:22.954Z",
+    "endDate": "2027-05-27T04:25:22.953Z",
+    "isActive": true
+  }
+]

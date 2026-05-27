@@ -1,0 +1,141 @@
+[
+  {
+    "_id": "6652ed9a2d480d195cbb295a",
+    "user": "6652ed9a2d480d195cbb291c",
+    "product": "6652ed9a2d480d195cbb294a",
+    "rating": 5,
+    "title": "Absolutely incredible sound quality!",
+    "comment": "I have tried headphones that cost double the price and these sound noticeably crisper. Noise cancelling is fantastic, completely silences my office environment.",
+    "likes": 12,
+    "likedBy": []
+  },
+  {
+    "_id": "6652ed9a2d480d195cbb295b",
+    "user": "6652ed9a2d480d195cbb291a",
+    "product": "6652ed9a2d480d195cbb294a",
+    "rating": 4,
+    "title": "Very comfortable, but a bit heavy",
+    "comment": "Ear cushion foams are premium quality. Battery easily lasts all week. The headband gets slightly heavy on long gaming/work sessions, but otherwise excellent.",
+    "likes": 4,
+    "likedBy": []
+  },
+  {
+    "_id": "6652ed9a2d480d195cbb295c",
+    "user": "6652ed9a2d480d195cbb291b",
+    "product": "6652ed9a2d480d195cbb294a",
+    "rating": 5,
+    "title": "ANC works wonders!",
+    "comment": "Great connectivity and outstanding bass depth. Highly recommended for daily travel.",
+    "likes": 0,
+    "likedBy": []
+  },
+  {
+    "_id": "6652ed9a2d480d195cbb295d",
+    "user": "6652ed9a2d480d195cbb291c",
+    "product": "6652ed9a2d480d195cbb294b",
+    "rating": 4.5,
+    "title": "Highly functional fitness trackers",
+    "comment": "Accurate tracking. Screen is beautiful and easily readable under direct sunlight.",
+    "likes": 2,
+    "likedBy": []
+  },
+  {
+    "_id": "6652ed9a2d480d195cbb295e",
+    "user": "6652ed9a2d480d195cbb291c",
+    "product": "6652ed9a2d480d195cbb294c",
+    "rating": 4,
+    "title": "Solid materials, lots of pockets",
+    "comment": "It fits my 16 inch laptop easily. The material is very heavy duty and waterproof. Wish it came in more colors.",
+    "likes": 1,
+    "likedBy": []
+  },
+  {
+    "_id": "6652ed9a2d480d195cbb295f",
+    "user": "6652ed9a2d480d195cbb291c",
+    "product": "6652ed9a2d480d195cbb294d",
+    "rating": 5,
+    "title": "Powerful motor blenders!",
+    "comment": "Blends frozen fruits with absolutely zero issues. Clean-up is very simple. High value kitchen accessory.",
+    "likes": 6,
+    "likedBy": []
+  },
+  {
+    "_id": "6652ed9a2d480d195cbb296a",
+    "user": "6652ed9a2d480d195cbb291c",
+    "product": "6652ed9a2d480d195cbb294e",
+    "rating": 5,
+    "title": "Compact and punchy",
+    "comment": "ANC is surprisingly good for earbuds of this size. The charging case touchscreen is incredibly useful and futuristic.",
+    "likes": 3,
+    "likedBy": []
+  },
+  {
+    "_id": "6652ed9a2d480d195cbb296b",
+    "user": "6652ed9a2d480d195cbb291c",
+    "product": "6652ed9a2d480d195cbb294f",
+    "rating": 5,
+    "title": "Tactile clicks are perfect",
+    "comment": "Love the switches, hot-swappable design is excellent. Perfect for typing and gaming.",
+    "likes": 2,
+    "likedBy": []
+  },
+  {
+    "_id": "6652ed9a2d480d195cbb296c",
+    "user": "6652ed9a2d480d195cbb2950",
+    "rating": 4,
+    "title": "Super clear projection",
+    "comment": "Very easy keystone setup. Image is vibrant even in a slightly lit room.",
+    "likes": 1,
+    "likedBy": []
+  },
+  {
+    "_id": "6652ed9a2d480d195cbb296d",
+    "user": "6652ed9a2d480d195cbb291c",
+    "product": "6652ed9a2d480d195cbb2951",
+    "rating": 5,
+    "title": "Amazing leather quality",
+    "comment": "Smells like high-end leather, fit is snug and perfect. Heavy duty zippers are premium quality.",
+    "likes": 8,
+    "likedBy": []
+  },
+  {
+    "_id": "6652ed9a2d480d195cbb296e",
+    "user": "6652ed9a2d480d195cbb291c",
+    "product": "6652ed9a2d480d195cbb2952",
+    "rating": 4.5,
+    "title": "Feels like walking on clouds",
+    "comment": "The carbon plate gives a nice spring to every stride. Great for short sprints or full marathons.",
+    "likes": 5,
+    "likedBy": []
+  },
+  {
+    "_id": "6652ed9a2d480d195cbb296f",
+    "user": "6652ed9a2d480d195cbb291c",
+    "product": "6652ed9a2d480d195cbb2955",
+    "rating": 5,
+    "title": "Espresso is top tier!",
+    "comment": "The grinder is exceptionally consistent. PID control lets you dial in the temperature perfectly.",
+    "likes": 15,
+    "likedBy": []
+  },
+  {
+    "_id": "6652ed9a2d480d195cbb2970",
+    "user": "6652ed9a2d480d195cbb291c",
+    "product": "6652ed9a2d480d195cbb2960",
+    "rating": 5,
+    "title": "Space saver",
+    "comment": "Dial clicks securely, changing weights is smooth. Solid build quality, replaces a full rack.",
+    "likes": 9,
+    "likedBy": []
+  },
+  {
+    "_id": "6652ed9a2d480d195cbb2971",
+    "user": "6652ed9a2d480d195cbb291c",
+    "product": "6652ed9a2d480d195cbb2962",
+    "rating": 5,
+    "title": "Handles trails like a champ",
+    "comment": "Durable frame, shifters are snappy, brakes are incredibly powerful. Terrific ride.",
+    "likes": 4,
+    "likedBy": []
+  }
+]
