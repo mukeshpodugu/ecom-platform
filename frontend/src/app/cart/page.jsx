@@ -86,6 +86,65 @@ export default function CartPage() {
 
   return (
     <div className="container animate-fade-in" style={{ padding: '60px 24px' }}>
+      
+      {/* Checkout Progress Stepper */}
+      <div className="stepper-wrapper" style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: '0 auto 40px auto',
+        maxWidth: '640px',
+        padding: '18px 24px',
+        backgroundColor: 'var(--glass-bg)',
+        border: '1px solid hsl(var(--border-color))',
+        backdropFilter: 'blur(var(--glass-blur))',
+        borderRadius: 'var(--radius-md)',
+        boxShadow: '0 4px 20px 0 rgba(var(--shadow-color), 0.02)'
+      }}>
+        {[
+          { num: 1, label: 'Shopping Cart', active: true, done: false },
+          { num: 2, label: 'Shipping Details', active: false, done: false },
+          { num: 3, label: 'Secure Payment', active: false, done: false }
+        ].map((step, idx, arr) => (
+          <React.Fragment key={step.num}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div style={{
+                width: '28px',
+                height: '28px',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: 700,
+                fontSize: '12px',
+                backgroundColor: 'hsl(var(--accent-primary))',
+                color: 'white',
+                boxShadow: '0 0 12px hsla(var(--accent-primary), 0.4)',
+                border: '2px solid hsla(var(--accent-primary), 0.2)'
+              }}>
+                {step.num}
+              </div>
+              <span className="stepper-text" style={{
+                fontSize: '13px',
+                fontWeight: 700,
+                color: 'hsl(var(--text-primary))'
+              }}>
+                {step.label}
+              </span>
+            </div>
+            {idx < arr.length - 1 && (
+              <div className="stepper-line" style={{
+                flexGrow: 1,
+                height: '2px',
+                backgroundColor: 'hsl(var(--border-color))',
+                margin: '0 20px',
+                minWidth: '40px'
+              }} />
+            )}
+          </React.Fragment>
+        ))}
+      </div>
+
       <h1 style={{ fontSize: '28px', fontWeight: 800, marginBottom: '32px' }}>Shopping Cart</h1>
 
       {items.length > 0 ? (
@@ -110,7 +169,7 @@ export default function CartPage() {
                 }}>
                   {/* Image */}
                   <div style={{ height: '80px', backgroundColor: 'white', borderRadius: 'var(--radius-sm)', overflow: 'hidden' }}>
-                    <img src={product.images?.[0]} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                    <img src={product.images?.[0]} alt={product.name} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                   </div>
 
                   {/* Details */}

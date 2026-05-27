@@ -144,6 +144,29 @@ export default function HomePage() {
                 Explore Offers
               </a>
             </div>
+
+            {/* Floating stats row */}
+            <div style={{
+              display: 'flex',
+              gap: '24px',
+              marginTop: '40px',
+              borderTop: '1px solid rgba(255,255,255,0.08)',
+              paddingTop: '24px',
+              flexWrap: 'wrap'
+            }}>
+              <div>
+                <span style={{ fontSize: '24px', fontWeight: 800, color: 'white', display: 'block' }}>15k+</span>
+                <span style={{ fontSize: '11px', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>Active Orders</span>
+              </div>
+              <div style={{ borderLeft: '1px solid rgba(255,255,255,0.08)', paddingLeft: '24px' }}>
+                <span style={{ fontSize: '24px', fontWeight: 800, color: 'white', display: 'block' }}>4.9★</span>
+                <span style={{ fontSize: '11px', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>Customer Reviews</span>
+              </div>
+              <div style={{ borderLeft: '1px solid rgba(255,255,255,0.08)', paddingLeft: '24px' }}>
+                <span style={{ fontSize: '24px', fontWeight: 800, color: 'white', display: 'block' }}>24/7</span>
+                <span style={{ fontSize: '11px', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>Developer Support</span>
+              </div>
+            </div>
           </div>
 
           {/* Hero product mock */}
@@ -159,6 +182,7 @@ export default function HomePage() {
               <img
                 src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500"
                 alt="Headphones"
+                loading="lazy"
                 style={{
                   borderRadius: 'var(--radius-md)',
                   boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
@@ -227,8 +251,11 @@ export default function HomePage() {
       </section>
 
       {/* 3. Category Grid */}
-      <section className="container" style={{ marginTop: '80px' }}>
-        <h2 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '30px' }}>Browse Categories</h2>
+      <section className="container" style={{ marginTop: '120px', borderTop: '1px solid hsla(var(--border-color), 0.5)', paddingTop: '60px' }}>
+        <div style={{ marginBottom: '40px', textAlign: 'center' }}>
+          <h2 style={{ fontSize: '28px', fontWeight: 800, marginBottom: '8px' }}>Shop by Category</h2>
+          <p style={{ fontSize: '14px', color: 'hsl(var(--text-secondary))' }}>Select a category to browse premium curated collections</p>
+        </div>
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
@@ -244,6 +271,7 @@ export default function HomePage() {
                 <img
                   src={cat.img}
                   alt={cat.name}
+                  loading="lazy"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
                 <div style={{
@@ -267,23 +295,25 @@ export default function HomePage() {
       </section>
 
       {/* 4. AI Recommendations / Trending Products Section */}
-      <section className="container" style={{ marginTop: '80px' }} id="deals">
+      <section className="container" style={{ marginTop: '120px', borderTop: '1px solid hsla(var(--border-color), 0.5)', paddingTop: '60px' }} id="deals">
         <div style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          marginBottom: '30px'
+          marginBottom: '30px',
+          flexWrap: 'wrap',
+          gap: '10px'
         }}>
           <h2 style={{
-            fontSize: '24px',
+            fontSize: '28px',
             fontWeight: 800,
             display: 'flex',
             alignItems: 'center',
             gap: '8px'
           }}>
-            <Sparkles size={22} style={{ color: 'hsl(var(--accent-secondary))' }} /> Recommended For You
+            <Sparkles size={24} style={{ color: 'hsl(var(--accent-secondary))' }} /> Recommended For You
           </h2>
-          <span style={{ fontSize: '12px', color: 'hsl(var(--text-muted))' }}>Powered by AI Recommendations</span>
+          <span style={{ fontSize: '13px', color: 'hsl(var(--text-secondary))', fontWeight: 500 }}>Powered by AI Recommendations</span>
         </div>
 
         {loading ? (
@@ -307,6 +337,7 @@ export default function HomePage() {
                     <img
                       src={prod.images && prod.images[0] ? prod.images[0] : 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400'}
                       alt={prod.name}
+                      loading="lazy"
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
                     {prod.discount > 0 && (

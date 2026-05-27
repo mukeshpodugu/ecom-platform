@@ -167,6 +167,7 @@ const seedData = async () => {
     ];
 
     // Products
+    // Products
     const products = [
       {
         _id: '6652ed9a2d480d195cbb294a',
@@ -281,10 +282,423 @@ const seedData = async () => {
           'Speed Levels': '5 + Pulse',
           'Blade Material': 'Stainless Steel'
         }
+      },
+      {
+        _id: '6652ed9a2d480d195cbb294e',
+        name: 'Acoustics Airbud Pro',
+        description: 'True wireless active noise cancelling earbuds with deep bass response, IPX7 sweat resistance, and a smart touchscreen charging case. Enjoy 8 hours of playback time with an extra 24 hours provided by the case.',
+        price: 99,
+        originalPrice: 149,
+        discount: 33,
+        category: '6652ed9a2d480d195cbb292a', // Electronics
+        brand: 'Acoustics',
+        stock: 45,
+        images: [
+          'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600',
+          'https://images.unsplash.com/photo-1608156639585-b3a032ef9689?w=600'
+        ],
+        variants: [
+          { name: 'Color', options: ['Glossy White', 'Carbon Black'] }
+        ],
+        rating: 4.6,
+        reviewsCount: 2,
+        seller: '6652ed9a2d480d195cbb291d',
+        isFeatured: true,
+        isTrending: true,
+        specs: {
+          'Drivers': '11mm Dynamic',
+          'Water Resistance': 'IPX7',
+          'Battery Playback': '32 Hours Total',
+          'Wireless Charging': 'Qi Supported'
+        }
+      },
+      {
+        _id: '6652ed9a2d480d195cbb294f',
+        name: 'Apex Mechanical Gaming Keyboard',
+        description: 'Premium mechanical keyboard featuring hot-swappable tactile blue switches, customizable per-key RGB backlighting, a brushed aluminum frame, and dedicated multimedia controls with a volume dial.',
+        price: 129,
+        originalPrice: 159,
+        discount: 18,
+        category: '6652ed9a2d480d195cbb292a', // Electronics
+        brand: 'Quantum Tech',
+        stock: 5, // Low stock
+        images: [
+          'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=600',
+          'https://images.unsplash.com/photo-1595225476474-87563907a212?w=600'
+        ],
+        variants: [
+          { name: 'Switch Type', options: ['Blue Tactile', 'Red Linear', 'Brown Silent'] }
+        ],
+        rating: 4.7,
+        reviewsCount: 1,
+        seller: '6652ed9a2d480d195cbb291d',
+        isFeatured: false,
+        isTrending: true,
+        specs: {
+          'Layout': 'Tenkeyless (80%)',
+          'Connection': 'USB-C Detachable',
+          'Switch Lifespan': '50 Million Keystrokes',
+          'Keycaps': 'Double-shot PBT'
+        }
+      },
+      {
+        _id: '6652ed9a2d480d195cbb2950',
+        name: 'Quantum HD Portable Projector',
+        description: 'Bring the cinema anywhere with this ultra-portable 1080p smart projector. Features 800 ANSI lumens of brightness, built-in dual 5W Harman Kardon speakers, Android TV interface, and automatic keystone correction.',
+        price: 349,
+        originalPrice: 399,
+        discount: 12,
+        category: '6652ed9a2d480d195cbb292a', // Electronics
+        brand: 'Quantum Tech',
+        stock: 12,
+        images: [
+          'https://images.unsplash.com/photo-1535016120720-40c646be5580?w=600'
+        ],
+        variants: [],
+        rating: 4.4,
+        reviewsCount: 1,
+        seller: '6652ed9a2d480d195cbb291d',
+        isFeatured: true,
+        isTrending: false,
+        specs: {
+          'Native Resolution': '1920x1080 (HD)',
+          'Brightness': '800 ANSI Lumens',
+          'Projection Size': '30 - 150 Inches',
+          'Connectivity': 'HDMI, USB, Wi-Fi, Bluetooth'
+        }
+      },
+      {
+        _id: '6652ed9a2d480d195cbb2951',
+        name: 'Apex Classic Leather Jacket',
+        description: 'Crafted from 100% genuine top-grain cowhide leather, this timeless biker jacket features heavy-duty asymmetrical zippers, a soft quilted lining, and multiple zipper pockets. Designed to fit comfortably and wear in beautifully over time.',
+        price: 180,
+        originalPrice: 240,
+        discount: 25,
+        category: '6652ed9a2d480d195cbb292b', // Fashion
+        brand: 'Outback Gear',
+        stock: 8, // Low stock
+        images: [
+          'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600',
+          'https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?w=600'
+        ],
+        variants: [
+          { name: 'Size', options: ['S', 'M', 'L', 'XL'] }
+        ],
+        rating: 4.8,
+        reviewsCount: 1,
+        seller: '6652ed9a2d480d195cbb291d',
+        isFeatured: true,
+        isTrending: true,
+        specs: {
+          'Material': '100% Top-Grain Leather',
+          'Lining': 'Satin Polyester',
+          'Style': 'Asymmetrical Moto Biker',
+          'Closure': 'YKK Zippers'
+        }
+      },
+      {
+        _id: '6652ed9a2d480d195cbb2952',
+        name: 'RunFree Carbon Athletic Shoes',
+        description: 'Engineered for competitive running and daily training. Features a carbon fiber propulsion plate, responsive dual-density foam midsole, breathable engineered mesh upper, and highly durable rubber traction outsole.',
+        price: 110,
+        originalPrice: 150,
+        discount: 26,
+        category: '6652ed9a2d480d195cbb292b', // Fashion
+        brand: 'Outback Gear',
+        stock: 22,
+        images: [
+          'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600',
+          'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600'
+        ],
+        variants: [
+          { name: 'Size', options: ['8', '9', '10', '11'] }
+        ],
+        rating: 4.5,
+        reviewsCount: 1,
+        seller: '6652ed9a2d480d195cbb291d',
+        isFeatured: true,
+        isTrending: true,
+        specs: {
+          'Midsole Drop': '8mm',
+          'Weight': '210g (Size 9)',
+          'Outsole': 'Carbon Rubber Traction',
+          'Propulsion': 'Carbon Fiber Plate'
+        }
+      },
+      {
+        _id: '6652ed9a2d480d195cbb2953',
+        name: 'Apex Smart Wool Overcoat',
+        description: 'Stay warm and sharp in this premium wool blend overcoat. Features a single-breasted classic silhouette, notch lapels, structured shoulders, and deep inside pockets. Ideal for formal meetings and winter commuting.',
+        price: 150,
+        originalPrice: 200,
+        discount: 25,
+        category: '6652ed9a2d480d195cbb292b', // Fashion
+        brand: 'Outback Gear',
+        stock: 14,
+        images: [
+          'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600'
+        ],
+        variants: [
+          { name: 'Size', options: ['M', 'L', 'XL'] }
+        ],
+        rating: 4.3,
+        reviewsCount: 1,
+        seller: '6652ed9a2d480d195cbb291d',
+        isFeatured: false,
+        isTrending: false,
+        specs: {
+          'Material': '60% Wool, 40% Polyester Blend',
+          'Pockets': '2 Side Welts, 2 Interior chest pockets',
+          'Lining': 'Full Satin Viscose lining',
+          'Closure': 'Classic Button-up'
+        }
+      },
+      {
+        _id: '6652ed9a2d480d195cbb2954',
+        name: 'Waterproof Tech Windbreaker',
+        description: 'Ultralight performance windbreaker built with a fully seam-sealed ripstop fabric. Features adjustable hood toggles, zippered underarm ventilation ports, waterproof chest pockets, and elastic windproof cuffs.',
+        price: 69,
+        originalPrice: 99,
+        discount: 30,
+        category: '6652ed9a2d480d195cbb292b', // Fashion
+        brand: 'Outback Gear',
+        stock: 30,
+        images: [
+          'https://images.unsplash.com/photo-1548883354-7622d03aca27?w=600'
+        ],
+        variants: [
+          { name: 'Color', options: ['Neon Yellow', 'Stealth Black'] }
+        ],
+        rating: 4.2,
+        reviewsCount: 1,
+        seller: '6652ed9a2d480d195cbb291d',
+        isFeatured: false,
+        isTrending: true,
+        specs: {
+          'Waterproof Rating': '10,000mm Hydrostatic Head',
+          'Fabric': 'Recycled Poly Ripstop',
+          'Ventilation': 'Underarm zippered vents',
+          'Weight': '180g'
+        }
+      },
+      {
+        _id: '6652ed9a2d480d195cbb2955',
+        name: 'Apex Precision Espresso Station',
+        description: 'Brew professional café-quality espresso, lattes, and cappuccinos in the comfort of your kitchen. Built with a 15-bar Italian pressure pump, integrated conical burr grinder with 30 grind settings, and a commercial-grade steam wand.',
+        price: 499,
+        originalPrice: 599,
+        discount: 16,
+        category: '6652ed9a2d480d195cbb292c', // Home
+        brand: 'ChefTools',
+        stock: 6, // Low stock
+        images: [
+          'https://images.unsplash.com/photo-1517256064527-09c53b2d0ec6?w=600',
+          'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600'
+        ],
+        variants: [],
+        rating: 4.9,
+        reviewsCount: 1,
+        seller: '6652ed9a2d480d195cbb291d',
+        isFeatured: true,
+        isTrending: true,
+        specs: {
+          'Pump Pressure': '15 Bar Italian Pump',
+          'Grinder Type': 'Conical Burr (30 settings)',
+          'Heating System': 'Thermoblock Dual PID Controller',
+          'Water Tank Capacity': '2.0 Liters'
+        }
+      },
+      {
+        _id: '6652ed9a2d480d195cbb2956',
+        name: 'RoboVac Smart Navigation Vacuum',
+        description: 'Keep your floors spotless with zero effort. Features LiDAR smart mapping navigation, 3000Pa strong suction, automated self-emptying base station, and smart home app integration with voice commands.',
+        price: 249,
+        originalPrice: 329,
+        discount: 24,
+        category: '6652ed9a2d480d195cbb292c', // Home
+        brand: 'ChefTools',
+        stock: 15,
+        images: [
+          'https://images.unsplash.com/photo-1589656966895-2f33e7653819?w=600'
+        ],
+        variants: [],
+        rating: 4.6,
+        reviewsCount: 1,
+        seller: '6652ed9a2d480d195cbb291d',
+        isFeatured: true,
+        isTrending: false,
+        specs: {
+          'Suction Power': '3000 Pa',
+          'Battery Capacity': '5200 mAh (150 mins)',
+          'Navigation': 'LiDAR Mapping & Obstacle Avoidance',
+          'Dustbin Volume': '400ml + 3L Station'
+        }
+      },
+      {
+        _id: '6652ed9a2d480d195cbb2957',
+        name: 'Minimalist Floor Arc Lamp',
+        description: 'Illuminate your living room with a sleek, minimalist floor lamp. Features a curved brushed brass steel stand, a heavy white marble base to prevent tipping, and a smart dimmable LED bulb compatible with Alexa.',
+        price: 79,
+        originalPrice: 99,
+        discount: 20,
+        category: '6652ed9a2d480d195cbb292c', // Home
+        brand: 'ChefTools',
+        stock: 25,
+        images: [
+          'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600'
+        ],
+        variants: [],
+        rating: 4.4,
+        reviewsCount: 1,
+        seller: '6652ed9a2d480d195cbb291d',
+        isFeatured: false,
+        isTrending: true,
+        specs: {
+          'Material': 'Brushed Brass, White Marble',
+          'Height': '190 cm',
+          'Bulb Base': 'E26 Dimmable LED Included',
+          'Base Weight': '8.5 kg'
+        }
+      },
+      {
+        _id: '6652ed9a2d480d195cbb2958',
+        name: 'Apex HEPA H13 Air Purifier',
+        description: 'Breathe cleaner air in minutes. Features a medical-grade H13 True HEPA filter that captures 99.97% of airborne dust, smoke, pollen, and pet dander. Cleans rooms up to 500 sq ft in less than 15 minutes.',
+        price: 119,
+        originalPrice: 149,
+        discount: 20,
+        category: '6652ed9a2d480d195cbb292c', // Home
+        brand: 'ChefTools',
+        stock: 18,
+        images: [
+          'https://images.unsplash.com/photo-1626379616459-b2ce1d9decbc?w=600'
+        ],
+        variants: [],
+        rating: 4.7,
+        reviewsCount: 1,
+        seller: '6652ed9a2d480d195cbb291d',
+        isFeatured: false,
+        isTrending: false,
+        specs: {
+          'HEPA Grade': 'Medical H13 True HEPA',
+          'CADR Rating': '250 m³/h',
+          'Noise Level': '22dB - 50dB',
+          'Timer Settings': '2h, 4h, 8h'
+        }
+      },
+      {
+        _id: '6652ed9a2d480d195cbb2959',
+        name: 'Ergonomic Non-Slip Yoga Mat',
+        description: 'Premium eco-friendly TPE yoga mat with alignment guidelines. Offers excellent cushioning thickness, textured double-sided non-slip traction, and lightweight carry strap. Free from PVC and harsh chemicals.',
+        price: 29,
+        originalPrice: 39,
+        discount: 25,
+        category: '6652ed9a2d480d195cbb292d', // Fitness
+        brand: 'Outback Gear',
+        stock: 50,
+        images: [
+          'https://images.unsplash.com/photo-1592432678016-e910b452f9a2?w=600',
+          'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=600'
+        ],
+        variants: [
+          { name: 'Color', options: ['Sage Green', 'Violet Purple', 'Ocean Blue'] }
+        ],
+        rating: 4.5,
+        reviewsCount: 1,
+        seller: '6652ed9a2d480d195cbb291d',
+        isFeatured: false,
+        isTrending: true,
+        specs: {
+          'Material': 'Eco-Friendly TPE',
+          'Thickness': '6 mm',
+          'Dimensions': '183cm x 61cm',
+          'Weight': '850g'
+        }
+      },
+      {
+        _id: '6652ed9a2d480d195cbb2960',
+        name: 'Adjustable Dumbbell Set (Pair)',
+        description: 'Compact strength training solution. Adjust your working weights instantly from 5 lbs up to 52.5 lbs each with a simple turn of a dial. Replaces 15 individual dumbbell pairs in a single heavy-duty tray.',
+        price: 279,
+        originalPrice: 349,
+        discount: 20,
+        category: '6652ed9a2d480d195cbb292d', // Fitness
+        brand: 'Quantum Tech',
+        stock: 4, // Very low stock
+        images: [
+          'https://images.unsplash.com/photo-1638536532686-d610adfc8e5c?w=600',
+          'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600'
+        ],
+        variants: [],
+        rating: 4.8,
+        reviewsCount: 1,
+        seller: '6652ed9a2d480d195cbb291d',
+        isFeatured: true,
+        isTrending: true,
+        specs: {
+          'Weight Range': '5 to 52.5 lbs each (2.3 to 24 kg)',
+          'Setting Configurations': '15 Weight Adjustments',
+          'Handle Material': 'Non-slip Ergonomic steel grip',
+          'Trays Included': 'Yes'
+        }
+      },
+      {
+        _id: '6652ed9a2d480d195cbb2961',
+        name: 'Pro Hydration Trail Backpack',
+        description: 'Engineered for long-distance trail running, hiking, and mountain cycling. Includes a premium 2L leak-proof water bladder, thermal insulated compartment, chest strap safety whistle, and high-visibility reflective strips.',
+        price: 39,
+        originalPrice: 59,
+        discount: 33,
+        category: '6652ed9a2d480d195cbb292d', // Fitness
+        brand: 'Outback Gear',
+        stock: 35,
+        images: [
+          'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600'
+        ],
+        variants: [],
+        rating: 4.3,
+        reviewsCount: 1,
+        seller: '6652ed9a2d480d195cbb291d',
+        isFeatured: false,
+        isTrending: false,
+        specs: {
+          'Bladder Volume': '2.0 Liters Included',
+          'Material': 'Waterproof Honeycomb Ripstop Nylon',
+          'Reflectors': '360° Safety reflective strips',
+          'Storage Volume': '8 Liters total'
+        }
+      },
+      {
+        _id: '6652ed9a2d480d195cbb2962',
+        name: 'Apex TrailBlazer Mountain Bike',
+        description: 'Conquer any rugged off-road trail. Features a durable lightweight aluminum suspension frame, professional 21-speed Shimano drivetrain, responsive mechanical dual disc brakes, and wide 27.5-inch knobby all-terrain tires.',
+        price: 399,
+        originalPrice: 499,
+        discount: 20,
+        category: '6652ed9a2d480d195cbb292d', // Fitness
+        brand: 'Outback Gear',
+        stock: 7, // Low stock
+        images: [
+          'https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=600',
+          'https://images.unsplash.com/photo-1579308051842-48b4f66f7ee1?w=600'
+        ],
+        variants: [
+          { name: 'Frame Size', options: ['17 Inches (Medium)', '19 Inches (Large)'] }
+        ],
+        rating: 4.6,
+        reviewsCount: 1,
+        seller: '6652ed9a2d480d195cbb291d',
+        isFeatured: true,
+        isTrending: false,
+        specs: {
+          'Frame Type': 'Lightweight 6061 Aluminum Frame',
+          'Speeds Drivetrain': '21-Speed Shimano Gearset',
+          'Braking System': 'Dual Mechanical Disc Brakes',
+          'Tire Dimension': '27.5 x 2.1 Inches Knobby Tires'
+        }
       }
     ];
 
-    // Reviews
     const reviews = [
       {
         _id: '6652ed9a2d480d195cbb295a',
@@ -344,6 +758,85 @@ const seedData = async () => {
         title: 'Powerful motor blenders!',
         comment: 'Blends frozen fruits with absolutely zero issues. Clean-up is very simple. High value kitchen accessory.',
         likes: 6,
+        likedBy: []
+      },
+      {
+        _id: '6652ed9a2d480d195cbb296a',
+        user: '6652ed9a2d480d195cbb291c',
+        product: '6652ed9a2d480d195cbb294e', // Earbuds
+        rating: 5,
+        title: 'Compact and punchy',
+        comment: 'ANC is surprisingly good for earbuds of this size. The charging case touchscreen is incredibly useful and futuristic.',
+        likes: 3,
+        likedBy: []
+      },
+      {
+        _id: '6652ed9a2d480d195cbb296b',
+        user: '6652ed9a2d480d195cbb291c',
+        product: '6652ed9a2d480d195cbb294f', // Keyboard
+        rating: 5,
+        title: 'Tactile clicks are perfect',
+        comment: 'Love the switches, hot-swappable design is excellent. Perfect for typing and gaming.',
+        likes: 2,
+        likedBy: []
+      },
+      {
+        _id: '6652ed9a2d480d195cbb296c',
+        user: '6652ed9a2d480d195cbb2950', // Projector
+        rating: 4,
+        title: 'Super clear projection',
+        comment: 'Very easy keystone setup. Image is vibrant even in a slightly lit room.',
+        likes: 1,
+        likedBy: []
+      },
+      {
+        _id: '6652ed9a2d480d195cbb296d',
+        user: '6652ed9a2d480d195cbb291c',
+        product: '6652ed9a2d480d195cbb2951', // Leather jacket
+        rating: 5,
+        title: 'Amazing leather quality',
+        comment: 'Smells like high-end leather, fit is snug and perfect. Heavy duty zippers are premium quality.',
+        likes: 8,
+        likedBy: []
+      },
+      {
+        _id: '6652ed9a2d480d195cbb296e',
+        user: '6652ed9a2d480d195cbb291c',
+        product: '6652ed9a2d480d195cbb2952', // Shoes
+        rating: 4.5,
+        title: 'Feels like walking on clouds',
+        comment: 'The carbon plate gives a nice spring to every stride. Great for short sprints or full marathons.',
+        likes: 5,
+        likedBy: []
+      },
+      {
+        _id: '6652ed9a2d480d195cbb296f',
+        user: '6652ed9a2d480d195cbb291c',
+        product: '6652ed9a2d480d195cbb2955', // Espresso machine
+        rating: 5,
+        title: 'Espresso is top tier!',
+        comment: 'The grinder is exceptionally consistent. PID control lets you dial in the temperature perfectly.',
+        likes: 15,
+        likedBy: []
+      },
+      {
+        _id: '6652ed9a2d480d195cbb2970',
+        user: '6652ed9a2d480d195cbb291c',
+        product: '6652ed9a2d480d195cbb2960', // Dumbbells
+        rating: 5,
+        title: 'Space saver',
+        comment: 'Dial clicks securely, changing weights is smooth. Solid build quality, replaces a full rack.',
+        likes: 9,
+        likedBy: []
+      },
+      {
+        _id: '6652ed9a2d480d195cbb2971',
+        user: '6652ed9a2d480d195cbb291c',
+        product: '6652ed9a2d480d195cbb2962', // Mountain bike
+        rating: 5,
+        title: 'Handles trails like a champ',
+        comment: 'Durable frame, shifters are snappy, brakes are incredibly powerful. Terrific ride.',
+        likes: 4,
         likedBy: []
       }
     ];

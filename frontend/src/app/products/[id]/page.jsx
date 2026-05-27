@@ -21,11 +21,26 @@ export default function ProductDetailPage() {
   const [qty, setQty] = useState(1);
   const [zoomStyle, setZoomStyle] = useState({ transformOrigin: '0% 0%', transform: 'scale(1)' });
 
+  // Tabs and Estimator States
+  const [activeTab, setActiveTab] = useState('description');
+  const [pincode, setPincode] = useState('');
+  const [deliveryEst, setDeliveryEst] = useState('');
+  const [ratingFilter, setRatingFilter] = useState(null);
+
   // Reviews submission state
   const [reviews, setReviews] = useState([]);
   const [reviewRating, setReviewRating] = useState(5);
   const [reviewTitle, setReviewTitle] = useState('');
   const [reviewComment, setReviewComment] = useState('');
+
+  const handleCheckDelivery = () => {
+    if (!pincode || pincode.length < 5) {
+      dispatch(addToast({ message: 'Please enter a valid zip code', type: 'error' }));
+      return;
+    }
+    const days = (Number(pincode) % 3) + 2;
+    setDeliveryEst(`Estimated delivery to ${pincode} within ${days} days (Free Express Shipping)`);
+  };
 
   useEffect(() => {
     dispatch(fetchProductById(params.id));
@@ -136,6 +151,10 @@ export default function ProductDetailPage() {
     );
   }
 
+  const filteredReviews = ratingFilter 
+    ? reviews.filter(r => r.rating === ratingFilter) 
+    : reviews;
+
   return (
     <div className="container animate-fade-in" style={{ padding: '60px 24px' }}>
       
@@ -166,6 +185,7 @@ export default function ProductDetailPage() {
             <img
               src={activeImage}
               alt={selectedProduct.name}
+              loading="lazy"
               style={{
                 width: '100%',
                 height: '100%',
@@ -191,7 +211,7 @@ export default function ProductDetailPage() {
                   backgroundColor: 'white'
                 }}
               >
-                <img src={img} alt="thumbnail" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src={img} alt="thumbnail" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </button>
             ))}
           </div>
@@ -248,10 +268,113 @@ export default function ProductDetailPage() {
             </p>
           </div>
 
-          {/* Product description */}
-          <p style={{ fontSize: '14px', color: 'hsl(var(--text-secondary))', lineHeight: 1.6, marginBottom: '30px' }}>
-            {selectedProduct.description}
-          </p>
+          {/* Stock Meter */}
+          <div style={{ marginBottom: '20px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px', fontSize: '13px' }}>
+              <span style={{ fontWeight: 600 }}>Availability:</span>
+              <span style={{
+                fontWeight: 700,
+                color: selectedProduct.stock > 0 
+                  ? (selectedProduct.stock < 10 ? 'hsl(var(--accent-warning))' : 'hsl(var(--accent-success))')
+                  : 'hsl(var(--accent-danger))'
+              }}>
+                {selectedProduct.stock > 0 
+                  ? (selectedProduct.stock < 10 ? `Only ${selectedProduct.stock} left in stock!` : 'In Stock')
+                  : 'Out of Stock'}
+              </span>
+            </div>
+            {selectedProduct.stock > 0 && (
+              <div style={{ width: '100%', height: '6px', backgroundColor: 'hsl(var(--bg-tertiary))', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
+                <div style={{
+                  width: `${Math.min(100, (selectedProduct.stock / 50) * 100)}%`,
+                  height: '100%',
+                  backgroundColor: selectedProduct.stock < 10 ? 'hsl(var(--accent-warning))' : 'hsl(var(--accent-success))',
+                  borderRadius: 'var(--radius-full)'
+                }} />
+              </div>
+            )}
+          </div>
+
+          {/* Tabs Navigation */}
+          <div style={{
+            display: 'flex',
+            borderBottom: '1px solid hsl(var(--border-color))',
+            marginBottom: '20px',
+            marginTop: '30px'
+          }}>
+            {[
+              { id: 'description', label: 'Details & Specs' },
+              { id: 'shipping', label: 'Shipping & Returns' },
+              { id: 'seller', label: 'Verified Seller' }
+            ].map(tab => (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => setActiveTab(tab.id)}
+                style={{
+                  padding: '10px 16px',
+                  fontSize: '13px',
+                  fontWeight: 700,
+                  borderBottom: activeTab === tab.id ? '2px solid hsl(var(--accent-primary))' : 'none',
+                  color: activeTab === tab.id ? 'hsl(var(--accent-primary))' : 'hsl(var(--text-secondary))',
+                  transition: 'all 0.15s'
+                }}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Tab Contents */}
+          <div style={{ minHeight: '120px', fontSize: '13px', lineHeight: '1.6', color: 'hsl(var(--text-secondary))', marginBottom: '30px' }}>
+            {activeTab === 'description' && (
+              <div>
+                <p style={{ marginBottom: '16px' }}>{selectedProduct.description}</p>
+                {selectedProduct.specs && Object.keys(selectedProduct.specs).length > 0 && (
+                  <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '12px' }}>
+                    <tbody>
+                      {Object.keys(selectedProduct.specs).map(key => (
+                        <tr key={key} style={{ borderBottom: '1px solid hsl(var(--border-color))' }}>
+                          <td style={{ padding: '8px 0', fontWeight: 600, color: 'hsl(var(--text-primary))', width: '40%' }}>{key}</td>
+                          <td style={{ padding: '8px 0' }}>{selectedProduct.specs[key]}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                )}
+              </div>
+            )}
+
+            {activeTab === 'shipping' && (
+              <div>
+                <p style={{ marginBottom: '10px' }}>📦 <strong>Free Express Shipping:</strong> Orders are processed within 24 hours and typically delivered within 2-4 business days.</p>
+                <p style={{ marginBottom: '10px' }}>🛡️ <strong>7 Days Replacements:</strong> If your product arrives damaged or defective, request a replacement within 7 days via your Orders timeline.</p>
+                <p>🔒 <strong>Secure Checkout:</strong> Industry-standard 256-bit SSL encryption protects all payment details (Stripe sandbox & UPI mock channels).</p>
+              </div>
+            )}
+
+            {activeTab === 'seller' && (
+              <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+                <div style={{
+                  width: '48px',
+                  height: '48px',
+                  borderRadius: 'var(--radius-md)',
+                  backgroundColor: 'hsla(var(--accent-success), 0.15)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'hsl(var(--accent-success))'
+                }}>
+                  <Shield size={24} />
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '14px', fontWeight: 800, color: 'hsl(var(--text-primary))' }}>Apex Premium Seller</h4>
+                  <p style={{ fontSize: '12px', color: 'hsl(var(--text-muted))' }}>ID: {selectedProduct.seller || 'Apex Verified Merchant'}</p>
+                  <span className="badge badge-stock" style={{ display: 'inline-block', marginTop: '6px', fontSize: '9px' }}>Verified Brand Partner</span>
+                </div>
+              </div>
+            )}
+          </div>
 
           {/* Variant Selector */}
           {selectedProduct.variants?.map(variant => (
@@ -319,6 +442,36 @@ export default function ProductDetailPage() {
             >
               <ShoppingCart size={18} /> {selectedProduct.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
             </button>
+          </div>
+
+          {/* Delivery Estimator */}
+          <div className="glass-panel" style={{ padding: '16px', borderRadius: 'var(--radius-md)', margin: '24px 0', backgroundColor: 'hsl(var(--bg-tertiary))' }}>
+            <h4 style={{ fontSize: '12px', fontWeight: 700, marginBottom: '8px', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <Truck size={14} /> Check Delivery Estimator
+            </h4>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <input
+                type="text"
+                placeholder="Enter Pincode / Zip Code"
+                value={pincode}
+                onChange={e => setPincode(e.target.value.replace(/\D/g, ''))}
+                className="form-input"
+                style={{ padding: '8px 12px', fontSize: '13px', height: '36px' }}
+              />
+              <button
+                type="button"
+                onClick={handleCheckDelivery}
+                className="btn btn-primary"
+                style={{ padding: '0 16px', height: '36px', fontSize: '12px' }}
+              >
+                Check
+              </button>
+            </div>
+            {deliveryEst && (
+              <p style={{ fontSize: '12px', fontWeight: 600, color: 'hsl(var(--accent-success))', marginTop: '10px' }}>
+                {deliveryEst}
+              </p>
+            )}
           </div>
 
           {/* Trust Guarantees */}
@@ -403,8 +556,47 @@ export default function ProductDetailPage() {
 
           {/* List of reviews */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            {reviews.length > 0 ? (
-              reviews.map(rev => (
+            {/* Star Rating Filters Row */}
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '16px', alignItems: 'center' }}>
+              <span style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', color: 'hsl(var(--text-secondary))' }}>Filter:</span>
+              <button
+                type="button"
+                onClick={() => setRatingFilter(null)}
+                style={{
+                  padding: '4px 10px',
+                  borderRadius: 'var(--radius-sm)',
+                  fontSize: '11px',
+                  fontWeight: 600,
+                  backgroundColor: ratingFilter === null ? 'hsl(var(--text-primary))' : 'hsl(var(--bg-tertiary))',
+                  color: ratingFilter === null ? 'hsl(var(--bg-secondary))' : 'hsl(var(--text-primary))'
+                }}
+              >
+                All ({reviews.length})
+              </button>
+              {[5, 4, 3, 2, 1].map(stars => {
+                const count = reviews.filter(r => r.rating === stars).length;
+                return (
+                  <button
+                    key={stars}
+                    type="button"
+                    onClick={() => setRatingFilter(stars)}
+                    style={{
+                      padding: '4px 10px',
+                      borderRadius: 'var(--radius-sm)',
+                      fontSize: '11px',
+                      fontWeight: 600,
+                      backgroundColor: ratingFilter === stars ? 'hsl(var(--text-primary))' : 'hsl(var(--bg-tertiary))',
+                      color: ratingFilter === stars ? 'hsl(var(--bg-secondary))' : 'hsl(var(--text-primary))'
+                    }}
+                  >
+                    {stars}★ ({count})
+                  </button>
+                );
+              })}
+            </div>
+
+            {filteredReviews.length > 0 ? (
+              filteredReviews.map(rev => (
                 <div key={rev._id} className="glass-panel" style={{ padding: '24px', borderRadius: 'var(--radius-md)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -460,7 +652,7 @@ export default function ProductDetailPage() {
               ))
             ) : (
               <div style={{ textAlign: 'center', padding: '40px 0', color: 'hsl(var(--text-muted))', fontSize: '13px' }}>
-                No reviews yet. Be the first to review this product!
+                {ratingFilter ? 'No reviews match this rating filter.' : 'No reviews yet. Be the first to review this product!'}
               </div>
             )}
           </div>
@@ -480,7 +672,7 @@ export default function ProductDetailPage() {
                 display: 'block'
               }}>
                 <div style={{ height: '180px', backgroundColor: 'hsl(var(--bg-tertiary))' }}>
-                  <img src={prod.images?.[0]} alt={prod.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={prod.images?.[0]} alt={prod.name} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <div style={{ padding: '16px' }}>
                   <h3 style={{ fontSize: '13px', fontWeight: 700, marginBottom: '6px' }}>{prod.name}</h3>

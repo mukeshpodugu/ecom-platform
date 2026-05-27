@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts } from '@/store/productSlice';
 import { addItemToCart } from '@/store/cartSlice';
 import { addToast } from '@/store/uiSlice';
-import { Star, Filter, ArrowUpDown, ChevronRight } from 'lucide-react';
+import { Star, Filter, ArrowUpDown, ChevronRight, Search, X } from 'lucide-react';
 
 function ProductListing() {
   const searchParams = useSearchParams();
@@ -17,6 +17,7 @@ function ProductListing() {
   const { products, pagination, loading } = useSelector(state => state.products);
 
   const [activeCategory, setActiveCategory] = useState(searchParams.get('category') || '');
+  const [brandSearch, setBrandSearch] = useState('');
   const [activeBrand, setActiveBrand] = useState('');
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
@@ -72,6 +73,28 @@ function ProductListing() {
         padding: '24px',
         height: 'fit-content'
       }}>
+        {searchParams.get('search') && (
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: '10px 12px',
+            backgroundColor: 'hsla(var(--accent-primary), 0.1)',
+            borderRadius: 'var(--radius-sm)',
+            marginBottom: '20px',
+            fontSize: '12px'
+          }}>
+            <span style={{ color: 'hsl(var(--text-primary))', fontSize: '11px' }}>Search: <strong>"{searchParams.get('search')}"</strong></span>
+            <button onClick={() => {
+              const params = new URLSearchParams(searchParams);
+              params.delete('search');
+              router.push(`/products?${params.toString()}`);
+            }} style={{ color: 'hsl(var(--accent-danger))', display: 'flex', alignItems: 'center' }}>
+              <X size={14} />
+            </button>
+          </div>
+        )}
+
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
           <h3 style={{ fontSize: '16px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
             <Filter size={16} /> Filters
@@ -83,7 +106,12 @@ function ProductListing() {
 
         {/* Category Filter */}
         <div style={{ marginBottom: '24px' }}>
-          <h4 style={{ fontSize: '13px', fontWeight: 700, marginBottom: '12px', textTransform: 'uppercase' }}>Category</h4>
+          <h4 style={{ fontSize: '13px', fontWeight: 700, marginBottom: '12px', textTransform: 'uppercase', display: 'flex', justifyContent: 'space-between' }}>
+            <span>Category</span>
+            {activeCategory && (
+              <button onClick={() => setActiveCategory('')} style={{ fontSize: '10px', color: 'hsl(var(--accent-danger))' }}>Clear</button>
+            )}
+          </h4>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {[
               { id: '6652ed9a2d480d195cbb292a', name: 'Electronics' },
@@ -95,16 +123,26 @@ function ProductListing() {
                 key={cat.id}
                 onClick={() => setActiveCategory(activeCategory === cat.id ? '' : cat.id)}
                 style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
                   textAlign: 'left',
                   fontSize: '13px',
                   padding: '6px 10px',
                   borderRadius: 'var(--radius-sm)',
-                  backgroundColor: activeCategory === cat.id ? 'hsla(var(--accent-primary), 0.15)' : 'transparent',
+                  backgroundColor: activeCategory === cat.id ? 'hsla(var(--accent-primary), 0.08)' : 'transparent',
                   color: activeCategory === cat.id ? 'hsl(var(--accent-primary))' : 'hsl(var(--text-secondary))',
-                  fontWeight: activeCategory === cat.id ? 700 : 500
+                  fontWeight: activeCategory === cat.id ? 700 : 500,
+                  width: '100%'
                 }}
               >
-                {cat.name}
+                <input
+                  type="checkbox"
+                  checked={activeCategory === cat.id}
+                  onChange={() => {}}
+                  style={{ pointerEvents: 'none' }}
+                />
+                <span>{cat.name}</span>
               </button>
             ))}
           </div>
@@ -112,32 +150,65 @@ function ProductListing() {
 
         {/* Brand Filter */}
         <div style={{ marginBottom: '24px' }}>
-          <h4 style={{ fontSize: '13px', fontWeight: 700, marginBottom: '12px', textTransform: 'uppercase' }}>Brand</h4>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            {['Acoustics', 'Quantum Tech', 'Outback Gear', 'ChefTools'].map(brand => (
-              <button
-                key={brand}
-                onClick={() => setActiveBrand(activeBrand === brand ? '' : brand)}
-                style={{
-                  textAlign: 'left',
-                  fontSize: '13px',
-                  padding: '6px 10px',
-                  borderRadius: 'var(--radius-sm)',
-                  backgroundColor: activeBrand === brand ? 'hsla(var(--accent-primary), 0.15)' : 'transparent',
-                  color: activeBrand === brand ? 'hsl(var(--accent-primary))' : 'hsl(var(--text-secondary))',
-                  fontWeight: activeBrand === brand ? 700 : 500
-                }}
-              >
-                {brand}
-              </button>
-            ))}
+          <h4 style={{ fontSize: '13px', fontWeight: 700, marginBottom: '12px', textTransform: 'uppercase', display: 'flex', justifyContent: 'space-between' }}>
+            <span>Brand</span>
+            {activeBrand && (
+              <button onClick={() => setActiveBrand('')} style={{ fontSize: '10px', color: 'hsl(var(--accent-danger))' }}>Clear</button>
+            )}
+          </h4>
+          <div style={{ position: 'relative', marginBottom: '10px' }}>
+            <input
+              type="text"
+              placeholder="Search brands..."
+              value={brandSearch}
+              onChange={e => setBrandSearch(e.target.value)}
+              className="form-input"
+              style={{ padding: '6px 10px 6px 30px', fontSize: '12px', height: '32px' }}
+            />
+            <Search size={12} style={{ position: 'absolute', left: '10px', top: '10px', color: 'hsl(var(--text-muted))' }} />
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', maxHeight: '150px', overflowY: 'auto' }}>
+            {['Acoustics', 'Quantum Tech', 'Outback Gear', 'ChefTools']
+              .filter(b => b.toLowerCase().includes(brandSearch.toLowerCase()))
+              .map(brand => (
+                <button
+                  key={brand}
+                  onClick={() => setActiveBrand(activeBrand === brand ? '' : brand)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    textAlign: 'left',
+                    fontSize: '13px',
+                    padding: '6px 10px',
+                    borderRadius: 'var(--radius-sm)',
+                    backgroundColor: activeBrand === brand ? 'hsla(var(--accent-primary), 0.08)' : 'transparent',
+                    color: activeBrand === brand ? 'hsl(var(--accent-primary))' : 'hsl(var(--text-secondary))',
+                    fontWeight: activeBrand === brand ? 700 : 500,
+                    width: '100%'
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    checked={activeBrand === brand}
+                    onChange={() => {}}
+                    style={{ pointerEvents: 'none' }}
+                  />
+                  <span>{brand}</span>
+                </button>
+              ))}
           </div>
         </div>
 
         {/* Price Filter */}
         <div style={{ marginBottom: '24px' }}>
-          <h4 style={{ fontSize: '13px', fontWeight: 700, marginBottom: '12px', textTransform: 'uppercase' }}>Price Range ($)</h4>
-          <div style={{ display: 'flex', gap: '10px' }}>
+          <h4 style={{ fontSize: '13px', fontWeight: 700, marginBottom: '12px', textTransform: 'uppercase', display: 'flex', justifyContent: 'space-between' }}>
+            <span>Price Range ($)</span>
+            {(minPrice || maxPrice) && (
+              <button onClick={() => { setMinPrice(''); setMaxPrice(''); }} style={{ fontSize: '10px', color: 'hsl(var(--accent-danger))' }}>Clear</button>
+            )}
+          </h4>
+          <div style={{ display: 'flex', gap: '10px', marginBottom: '12px' }}>
             <input
               type="number"
               placeholder="Min"
@@ -155,11 +226,46 @@ function ProductListing() {
               style={{ padding: '8px 12px', fontSize: '12px' }}
             />
           </div>
+          {/* Quick Price Ranges */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+            {[
+              { label: '< $50', min: '', max: '50' },
+              { label: '$50 - $150', min: '50', max: '150' },
+              { label: '> $150', min: '150', max: '' }
+            ].map(range => {
+              const isActive = minPrice === range.min && maxPrice === range.max;
+              return (
+                <button
+                  key={range.label}
+                  type="button"
+                  onClick={() => {
+                    setMinPrice(range.min);
+                    setMaxPrice(range.max);
+                  }}
+                  style={{
+                    padding: '4px 8px',
+                    fontSize: '11px',
+                    borderRadius: 'var(--radius-sm)',
+                    backgroundColor: isActive ? 'hsl(var(--text-primary))' : 'hsl(var(--bg-tertiary))',
+                    color: isActive ? 'hsl(var(--bg-secondary))' : 'hsl(var(--text-secondary))',
+                    fontWeight: 600
+                  }}
+                >
+                  {range.label}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Ratings Filter */}
         <div>
-          <h4 style={{ fontSize: '13px', fontWeight: 700, marginBottom: '12px', textTransform: 'uppercase' }}>Ratings</h4>
+          <h4 style={{ fontSize: '13px', fontWeight: 700, marginBottom: '12px', textTransform: 'uppercase', display: 'flex', justifyContent: 'space-between' }}>
+            <span>Ratings</span>
+            {activeRating && (
+              <button onClick={() => setActiveRating('')} style={{ fontSize: '10px', color: 'hsl(var(--accent-danger))' }}>Clear</button>
+            )}
+          </h4>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {[4, 3, 2].map(rating => (
               <button
@@ -172,11 +278,18 @@ function ProductListing() {
                   fontSize: '13px',
                   padding: '6px 10px',
                   borderRadius: 'var(--radius-sm)',
-                  backgroundColor: activeRating === rating ? 'hsla(var(--accent-primary), 0.15)' : 'transparent',
+                  backgroundColor: activeRating === rating ? 'hsla(var(--accent-primary), 0.08)' : 'transparent',
                   color: activeRating === rating ? 'hsl(var(--accent-primary))' : 'hsl(var(--text-secondary))',
-                  fontWeight: activeRating === rating ? 700 : 500
+                  fontWeight: activeRating === rating ? 700 : 500,
+                  width: '100%'
                 }}
               >
+                <input
+                  type="checkbox"
+                  checked={activeRating === rating}
+                  onChange={() => {}}
+                  style={{ pointerEvents: 'none' }}
+                />
                 <div style={{ display: 'flex', gap: '2px' }}>
                   {[1, 2, 3, 4, 5].map(starIdx => (
                     <Star
@@ -246,6 +359,7 @@ function ProductListing() {
                   <img
                     src={prod.images && prod.images[0] ? prod.images[0] : 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400'}
                     alt={prod.name}
+                    loading="lazy"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                   {prod.discount > 0 && (
