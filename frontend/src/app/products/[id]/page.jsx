@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchProductById, fetchSimilarRecommendations, clearSelectedProduct } from '@/store/productSlice';
 import { addItemToCart } from '@/store/cartSlice';
 import { addToast } from '@/store/uiSlice';
-import { Star, ShoppingCart, Heart, Shield, Undo, Calendar, User, ThumbsUp, Send } from 'lucide-react';
+import { Star, ShoppingCart, Heart, Shield, Undo, Calendar, User, ThumbsUp, Send, Truck } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ProductDetailPage() {
