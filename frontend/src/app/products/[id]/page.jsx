@@ -625,7 +625,7 @@ export default function ProductDetailPage() {
                           {rev.user && rev.user.name ? rev.user.name : 'Verified Customer'}
                         </h4>
                         <span style={{ fontSize: '10px', color: 'hsl(var(--text-muted))' }}>
-                          Verified Purchase | {new Date(rev.createdAt).toLocaleDateString()}
+                          Verified Purchase | {rev.createdAt ? new Date(rev.createdAt).toLocaleDateString() : 'Recent'}
                         </span>
                       </div>
                     </div>

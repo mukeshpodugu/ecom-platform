@@ -5,8 +5,8 @@
     "discountType": "percentage",
     "discountValue": 10,
     "minOrderAmount": 30,
-    "startDate": "2026-05-27T04:25:22.953Z",
-    "endDate": "2027-05-27T04:25:22.953Z",
+    "startDate": "2026-05-27T04:46:04.866Z",
+    "endDate": "2027-05-27T04:46:04.866Z",
     "isActive": true
   },
   {
@@ -16,8 +16,8 @@
     "discountValue": 20,
     "minOrderAmount": 50,
     "maxDiscountAmount": 30,
-    "startDate": "2026-05-27T04:25:22.954Z",
-    "endDate": "2027-05-27T04:25:22.953Z",
+    "startDate": "2026-05-27T04:46:04.866Z",
+    "endDate": "2027-05-27T04:46:04.866Z",
     "isActive": true
   },
   {
@@ -26,8 +26,8 @@
     "discountType": "fixed",
     "discountValue": 50,
     "minOrderAmount": 200,
-    "startDate": "2026-05-27T04:25:22.954Z",
-    "endDate": "2027-05-27T04:25:22.953Z",
+    "startDate": "2026-05-27T04:46:04.866Z",
+    "endDate": "2027-05-27T04:46:04.866Z",
     "isActive": true
   }
 ]

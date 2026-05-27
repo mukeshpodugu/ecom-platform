@@ -708,7 +708,8 @@ const seedData = async () => {
         title: 'Absolutely incredible sound quality!',
         comment: 'I have tried headphones that cost double the price and these sound noticeably crisper. Noise cancelling is fantastic, completely silences my office environment.',
         likes: 12,
-        likedBy: []
+        likedBy: [],
+        createdAt: '2026-05-20T08:30:00.000Z'
       },
       {
         _id: '6652ed9a2d480d195cbb295b',
@@ -718,7 +719,8 @@ const seedData = async () => {
         title: 'Very comfortable, but a bit heavy',
         comment: 'Ear cushion foams are premium quality. Battery easily lasts all week. The headband gets slightly heavy on long gaming/work sessions, but otherwise excellent.',
         likes: 4,
-        likedBy: []
+        likedBy: [],
+        createdAt: '2026-05-21T10:15:00.000Z'
       },
       {
         _id: '6652ed9a2d480d195cbb295c',
@@ -728,7 +730,8 @@ const seedData = async () => {
         title: 'ANC works wonders!',
         comment: 'Great connectivity and outstanding bass depth. Highly recommended for daily travel.',
         likes: 0,
-        likedBy: []
+        likedBy: [],
+        createdAt: '2026-05-22T14:00:00.000Z'
       },
       {
         _id: '6652ed9a2d480d195cbb295d',
@@ -738,7 +741,8 @@ const seedData = async () => {
         title: 'Highly functional fitness trackers',
         comment: 'Accurate tracking. Screen is beautiful and easily readable under direct sunlight.',
         likes: 2,
-        likedBy: []
+        likedBy: [],
+        createdAt: '2026-05-22T09:30:00.000Z'
       },
       {
         _id: '6652ed9a2d480d195cbb295e',
@@ -748,7 +752,8 @@ const seedData = async () => {
         title: 'Solid materials, lots of pockets',
         comment: 'It fits my 16 inch laptop easily. The material is very heavy duty and waterproof. Wish it came in more colors.',
         likes: 1,
-        likedBy: []
+        likedBy: [],
+        createdAt: '2026-05-23T11:45:00.000Z'
       },
       {
         _id: '6652ed9a2d480d195cbb295f',
@@ -758,7 +763,8 @@ const seedData = async () => {
         title: 'Powerful motor blenders!',
         comment: 'Blends frozen fruits with absolutely zero issues. Clean-up is very simple. High value kitchen accessory.',
         likes: 6,
-        likedBy: []
+        likedBy: [],
+        createdAt: '2026-05-24T16:20:00.000Z'
       },
       {
         _id: '6652ed9a2d480d195cbb296a',
@@ -768,7 +774,8 @@ const seedData = async () => {
         title: 'Compact and punchy',
         comment: 'ANC is surprisingly good for earbuds of this size. The charging case touchscreen is incredibly useful and futuristic.',
         likes: 3,
-        likedBy: []
+        likedBy: [],
+        createdAt: '2026-05-24T18:00:00.000Z'
       },
       {
         _id: '6652ed9a2d480d195cbb296b',
@@ -778,16 +785,19 @@ const seedData = async () => {
         title: 'Tactile clicks are perfect',
         comment: 'Love the switches, hot-swappable design is excellent. Perfect for typing and gaming.',
         likes: 2,
-        likedBy: []
+        likedBy: [],
+        createdAt: '2026-05-25T10:30:00.000Z'
       },
       {
         _id: '6652ed9a2d480d195cbb296c',
-        user: '6652ed9a2d480d195cbb2950', // Projector
+        user: '6652ed9a2d480d195cbb291c',
+        product: '6652ed9a2d480d195cbb2950', // Projector
         rating: 4,
         title: 'Super clear projection',
         comment: 'Very easy keystone setup. Image is vibrant even in a slightly lit room.',
         likes: 1,
-        likedBy: []
+        likedBy: [],
+        createdAt: '2026-05-25T14:45:00.000Z'
       },
       {
         _id: '6652ed9a2d480d195cbb296d',
@@ -797,7 +807,8 @@ const seedData = async () => {
         title: 'Amazing leather quality',
         comment: 'Smells like high-end leather, fit is snug and perfect. Heavy duty zippers are premium quality.',
         likes: 8,
-        likedBy: []
+        likedBy: [],
+        createdAt: '2026-05-26T09:15:00.000Z'
       },
       {
         _id: '6652ed9a2d480d195cbb296e',
@@ -807,7 +818,8 @@ const seedData = async () => {
         title: 'Feels like walking on clouds',
         comment: 'The carbon plate gives a nice spring to every stride. Great for short sprints or full marathons.',
         likes: 5,
-        likedBy: []
+        likedBy: [],
+        createdAt: '2026-05-26T12:00:00.000Z'
       },
       {
         _id: '6652ed9a2d480d195cbb296f',
@@ -817,7 +829,8 @@ const seedData = async () => {
         title: 'Espresso is top tier!',
         comment: 'The grinder is exceptionally consistent. PID control lets you dial in the temperature perfectly.',
         likes: 15,
-        likedBy: []
+        likedBy: [],
+        createdAt: '2026-05-26T15:30:00.000Z'
       },
       {
         _id: '6652ed9a2d480d195cbb2970',
@@ -827,7 +840,8 @@ const seedData = async () => {
         title: 'Space saver',
         comment: 'Dial clicks securely, changing weights is smooth. Solid build quality, replaces a full rack.',
         likes: 9,
-        likedBy: []
+        likedBy: [],
+        createdAt: '2026-05-27T08:00:00.000Z'
       },
       {
         _id: '6652ed9a2d480d195cbb2971',
@@ -837,7 +851,8 @@ const seedData = async () => {
         title: 'Handles trails like a champ',
         comment: 'Durable frame, shifters are snappy, brakes are incredibly powerful. Terrific ride.',
         likes: 4,
-        likedBy: []
+        likedBy: [],
+        createdAt: '2026-05-27T09:10:00.000Z'
       }
     ];
 
