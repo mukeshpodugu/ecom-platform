@@ -111,7 +111,7 @@ export default function Header() {
         </Link>
 
         {/* Search Bar */}
-        <form onSubmit={handleSearchSubmit} ref={suggestionRef} style={{
+        <form onSubmit={handleSearchSubmit} ref={suggestionRef} className="header-search-form" style={{
           position: 'relative',
           width: '40%',
           display: 'flex',
@@ -258,11 +258,133 @@ export default function Header() {
             </Link>
           )}
         </nav>
+
+        {/* Mobile Nav Icons (shown only on mobile) */}
+        <div className="mobile-nav-toggle" style={{
+          display: 'none',
+          alignItems: 'center',
+          gap: '12px'
+        }}>
+          {/* Cart Icon directly visible in header on mobile */}
+          <Link href="/cart" style={{
+            color: 'hsl(var(--text-secondary))',
+            position: 'relative',
+            display: 'flex',
+            alignItems: 'center',
+            padding: '6px'
+          }}>
+            <ShoppingCart size={20} />
+            {cartCount > 0 && (
+              <span className="badge-discount" style={{
+                position: 'absolute',
+                top: '-4px',
+                right: '-4px',
+                width: '16px',
+                height: '16px',
+                borderRadius: '50%',
+                backgroundColor: 'hsl(var(--accent-primary))',
+                color: 'white',
+                fontSize: '9px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: 700
+              }}>
+                {cartCount}
+              </span>
+            )}
+          </Link>
+
+          {/* Hamburger Menu Toggle */}
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} style={{
+            color: 'hsl(var(--text-secondary))',
+            padding: '6px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+            {mobileMenuOpen ? <X size={22} style={{ color: 'hsl(var(--accent-danger))' }} /> : <Menu size={22} />}
+          </button>
+        </div>
+
       </div>
+
+      {/* Mobile Drawer Navigation Menu */}
+      {mobileMenuOpen && (
+        <div style={{
+          position: 'fixed',
+          top: '70px',
+          left: 0,
+          width: '100%',
+          height: 'calc(100vh - 70px)',
+          backgroundColor: 'var(--glass-bg)',
+          backdropFilter: 'blur(16px)',
+          borderTop: '1px solid hsl(var(--border-color))',
+          zIndex: 99,
+          display: 'flex',
+          flexDirection: 'column',
+          padding: '30px 24px',
+          gap: '24px',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+        }} className="animate-fade-in">
+          <Link href="/products" onClick={() => setMobileMenuOpen(false)} style={{ fontSize: '16px', fontWeight: 600, display: 'block', padding: '10px 0', borderBottom: '1px solid hsl(var(--border-color))' }}>
+            Shop Catalog
+          </Link>
+
+          <Link href="/wishlist" onClick={() => setMobileMenuOpen(false)} style={{ fontSize: '16px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 0', borderBottom: '1px solid hsl(var(--border-color))' }}>
+            <Heart size={18} /> My Wishlist
+          </Link>
+
+          {isAuthenticated && (
+            <Link href="/orders" onClick={() => setMobileMenuOpen(false)} style={{ fontSize: '16px', fontWeight: 600, display: 'block', padding: '10px 0', borderBottom: '1px solid hsl(var(--border-color))' }}>
+              My Orders
+            </Link>
+          )}
+
+          {isAuthenticated ? (
+            <Link href={user.role === 'admin' ? '/admin' : user.role === 'seller' ? '/seller' : '/profile'} onClick={() => setMobileMenuOpen(false)} style={{ fontSize: '16px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 0', borderBottom: '1px solid hsl(var(--border-color))' }}>
+              <User size={18} /> My Account ({user.name.split(' ')[0]})
+            </Link>
+          ) : null}
+
+          {/* Theme Toggle in Mobile Menu */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderBottom: '1px solid hsl(var(--border-color))' }}>
+            <span style={{ fontSize: '16px', fontWeight: 600 }}>Switch Mode</span>
+            <button onClick={() => dispatch(toggleTheme())} style={{
+              color: 'hsl(var(--text-secondary))',
+              padding: '8px',
+              borderRadius: 'var(--radius-full)',
+              backgroundColor: 'hsl(var(--bg-tertiary))',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+          </div>
+
+          <div style={{ marginTop: 'auto', paddingBottom: '60px' }}>
+            {isAuthenticated ? (
+              <button onClick={() => { handleLogout(); setMobileMenuOpen(false); }} className="btn btn-secondary" style={{ width: '100%', height: '48px', color: 'hsl(var(--accent-danger))', borderColor: 'hsla(var(--accent-danger), 0.2)' }}>
+                <LogOut size={16} /> Sign Out
+              </button>
+            ) : (
+              <Link href="/auth/login" onClick={() => setMobileMenuOpen(false)} className="btn btn-primary" style={{ width: '100%', height: '48px' }}>
+                Sign In / Register
+              </Link>
+            )}
+          </div>
+        </div>
+      )}
 
       <style jsx global>{`
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
+          .mobile-nav-toggle { display: flex !important; }
+          .header-search-form { width: 50% !important; margin: 0 10px !important; }
+        }
+        @media (max-width: 480px) {
+          .header-search-form { width: 42% !important; }
         }
       `}</style>
     </header>
